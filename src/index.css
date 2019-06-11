@@ -12,3 +12,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#root {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+canvas {
+  border: 1px solid;
+}
+
+#TopGenomeChart {
+
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100em;
+}
+
+.card {
+  border-bottom: 1px solid;
+  margin-top: 0.2em;
+  padding: 0.2em;
+  width: 10em;
+}

@@ -1,28 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import GameComponent from './GameComponent.js';
+import TopListComponent from './TopListComponent.js';
+import GameInfoComponent from './GameInfoComponent.js';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+/**
+* Main React.js component for the project. Data state is used to store
+* data from the game object and parse it to other react components.
+*/
+const App = () => {
+  const [screen] = useState({ width: 300, height: 300 });
+  const [data, setGameData] = useState({});
+
+  return (
+  <div>
+    <GameInfoComponent
+      score={data.score}
+      iterations={data.iterations}
+      topAverage={data.averageTopFitness}
+      agentsLeft={data.agentsLeft}
+      />
+    <GameComponent
+      screen = {screen}
+      sendGameData={setGameData}/>
+    <TopListComponent
+      topGenomes={data.topGenomes}
+      />
+  </div>
+  )
+};
 
 export default App;
